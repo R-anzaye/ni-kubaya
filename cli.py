@@ -25,10 +25,11 @@ def find_car_by_vin():
     print(car) if car else print(f'Car with VIN {vin} not found')
 
 def create_car():
+    vin = input("Enter the car's VIN: ")
     make = input("Enter the car's make: ")
     model = input("Enter the car's model: ")
     year = int(input("Enter the car's year: "))
-    vin = input("Enter the car's VIN: ")
+    
     try:
         car = Car(make, model, year, vin)
         car.save()
