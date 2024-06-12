@@ -1,8 +1,7 @@
 import sqlite3
 
 class Comment:
-    def __init__(self, id_, maintenance_id, comment):
-        self.id = id_
+    def __init__(self, maintenance_id, comment):
         self.maintenance_id = maintenance_id
         self.comment = comment
 
@@ -11,7 +10,7 @@ class Comment:
         cursor = conn.cursor()
         cursor.execute("""
             INSERT INTO comment (maintenance_id, comment)
-            VALUES (?,?)
+            VALUES (?, ?)
         """, (self.maintenance_id, self.comment))
         self.id = cursor.lastrowid  # Get the last inserted id
         conn.commit()
