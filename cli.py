@@ -31,7 +31,7 @@ def create_car():
     year = int(input("Enter the car's year: "))
     
     try:
-        car = Car(make, model, year, vin)
+        car = Car(vin, make, model, year)
         car.save()
         print(f'Success: {car}')
     except Exception as exc:

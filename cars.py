@@ -20,12 +20,12 @@ class Car:
             # Car exists, so update it
             cursor.execute("""
                 UPDATE cars SET make=?, model=?, year=? WHERE vin=?
-            """, (self.make, self.model, self.year, self.vin))
+            """, (self.vin ,self.make, self.model, self.year ))
         else:
             # Car does not exist, so insert it
             cursor.execute("""
-                INSERT INTO cars (make, model, year, vin) VALUES (?,?,?,?)
-            """, (self.make, self.model, self.year, self.vin))
+                INSERT INTO cars (vin,make, model, year ) VALUES (?,?,?,?)
+            """, (self.vin ,self.make, self.model, self.year ))
 
         conn.commit()
         conn.close()
